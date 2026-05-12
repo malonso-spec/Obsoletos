@@ -590,9 +590,49 @@
     content: "—"; position: absolute; left: 0; color: var(--amber-deep);
   }
 
+  .guion-pdf-wrap {
+    max-width: 900px; margin: 0 auto;
+    background: var(--paper);
+    border-radius: 12px;
+    padding: 14px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  }
+  .guion-pdf-wrap iframe {
+    width: 100%;
+    height: 85vh;
+    min-height: 600px;
+    border: 0;
+    border-radius: 6px;
+    background: #1a1208;
+    display: block;
+  }
+  .guion-pdf-actions {
+    display: flex; justify-content: center; gap: 14px;
+    margin-top: 24px; flex-wrap: wrap;
+  }
+  .guion-pdf-actions a {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 22px;
+    background: var(--amber);
+    color: var(--night);
+    text-decoration: none;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .guion-pdf-actions a:hover { background: var(--amber-light); transform: translateY(-2px); }
+  .guion-pdf-actions a.ghost {
+    background: transparent;
+    color: var(--paper);
+    border: 1px solid rgba(253, 246, 227, 0.3);
+  }
+  .guion-pdf-actions a.ghost:hover { background: rgba(253, 246, 227, 0.08); }
+
   @media (max-width: 900px) {
     .guion-paper { padding: 40px 28px; font-size: 0.85rem; }
     .dialogue { max-width: 90%; }
+    .guion-pdf-wrap iframe { height: 70vh; }
   }
 
   /* ---------- FOOTER ---------- */
@@ -1024,435 +1064,13 @@
       <p class="section-lead">Episodio 01 — "El Reemplazo". Guión completo del piloto, escena por escena.</p>
     </div>
 
-    <div class="guion-paper">
-      <div class="transition">FADE IN:</div>
-
-      <div class="slug">INT. HABITACIÓN DE MAX — MAÑANA</div>
-      <div class="action">Oscuridad.</div>
-      <div class="sfx">BIP BIP BIP BIP</div>
-      <div class="action">Una pantalla verde ilumina la habitación.</div>
-      <div class="action bold">NOKIA 3330.</div>
-      <div class="action">Empiezan los primeros acordes de "ALL THE SMALL THINGS" — BLINK-182.</div>
-
-      <div class="montage-title">MONTAGE · LA VIDA PERFECTA</div>
-      <div class="montage-line">Max apaga la alarma medio dormido.</div>
-      <div class="montage-line">Nokia vibra sobre apuntes llenos de dibujos absurdos.</div>
-      <div class="montage-line">SMS entrando constantemente.</div>
-      <div class="montage-line">Dedos escribiendo rapidísimo con teclado numérico.</div>
-      <div class="montage-line">Nokia reproduciendo música pirata con auriculares baratos.</div>
-      <div class="montage-line">Snake durante clase.</div>
-      <div class="montage-line">Nokia se cae desde la cama.</div>
-      <div class="sfx">CRASH.</div>
-      <div class="action">El suelo se agrieta ligeramente. Silencio. Nokia sale del pequeño agujero intacto. Sigue vibrando orgullosamente.</div>
-      <div class="montage-line">Max lo recoge y limpia con la camiseta.</div>
-      <div class="montage-line">Nokia vibrando dentro del bolsillo mientras Max corre.</div>
-      <div class="montage-line">Nokia iluminando debajo de la cama.</div>
-      <div class="montage-line">"1 MENSAJE NUEVO".</div>
-      <div class="montage-line">Max escribiendo: <em>"te echo de menos. tqm"</em></div>
-      <div class="montage-line">Reflejo verde iluminando parcialmente su cara.</div>
-
-      <div class="slug">INT. BAÑO — MÁS TARDE</div>
-      <div class="action">La música continúa. Max está sentado en el váter usando el Nokia.</div>
-      <div class="sfx">PRRRRRRRRRRRRRRT</div>
-      <div class="action">Nokia pega un bote. Silencio. Y empieza a descojonarse.</div>
-
-      <div class="character-cue">NOKIA</div>
-      <div class="dialogue">JAJAJAJA. Hostia puta.</div>
-
-      <div class="action">Max empieza a reírse también. Ahora ambos se ríen juntos como dos colegas idiotas.</div>
-
-      <div class="montage-title">MONTAGE CONTINÚA</div>
-      <div class="montage-line">Nokia vibrando durante llamadas nocturnas.</div>
-      <div class="montage-line">Max durmiendo abrazado al móvil.</div>
-      <div class="montage-line">Amaneceres. Más mensajes. Más rutina.</div>
-      <div class="action">La canción empieza a apagarse lentamente. <b>ATARDECER.</b> Silencio.</div>
-
-      <div class="slug">INT. HABITACIÓN DE MAX — TARDE</div>
-      <div class="action">La puerta se abre. La MADRE entra con una bolsa. Nokia sigue sobre la mesa.</div>
-
-      <div class="character-cue">NOKIA</div>
-      <div class="dialogue">Ahí viene recursos humanos.</div>
-
-      <div class="action">La madre deja una caja blanca sobre la cama. Max se incorpora inmediatamente. Nokia frunce el ceño.</div>
-
-      <div class="character-cue">NOKIA</div>
-      <div class="dialogue">...¿Qué coño es eso?</div>
-
-      <div class="action">Max rompe lentamente el plástico.</div>
-      <div class="sfx">CRRRRRRK</div>
-      <div class="action">El sonido llena la habitación. Nokia observa incómodo. Max levanta la tapa.</div>
-      <div class="sfx">FWOOOSH</div>
-      <div class="action bold">Dentro: un iPhone. Minimalista. Elegante. Alienígena.</div>
-      <div class="action">Pequeños sonidos digitales suaves. Nokia se siente viejo por primera vez.</div>
-
-      <div class="character-cue">NOKIA</div>
-      <div class="dialogue">No.</div>
-
-      <div class="action">Max levanta el iPhone fascinado. La pantalla se enciende lentamente.</div>
-
-      <div class="character-cue">iPHONE</div>
-      <div class="dialogue">Hola, Max.</div>
-
-      <div class="action">Nokia queda helado.</div>
-
-      <div class="transition">CUT TO:</div>
-
-      <div class="slug">INT. MESILLA — NOCHE</div>
-      <div class="action">La habitación está oscura. Max duerme. Nokia y iPhone están juntos sobre la mesilla. Silencio incómodo. Nokia intenta parecer relajado.</div>
-
-      <div class="character-cue">NOKIA</div>
-      <div class="dialogue">Bueno... supongo que eres el juguete nuevo de la semana.</div>
-
-      <div class="character-cue">iPHONE</div>
-      <div class="dialogue">Bonita habitación.</div>
-
-      <div class="character-cue">NOKIA</div>
-      <div class="dialogue">Sí. La conozco bastante bien. Llevo aquí años.</div>
-
-      <div class="action">iPhone observa la habitación.</div>
-
-      <div class="character-cue">iPHONE</div>
-      <div class="dialogue">Es acogedora.</div>
-
-      <div class="character-cue">NOKIA</div>
-      <div class="dialogue">He estado en llamadas de ruptura. Emergencias familiares. Borracheras. Funerales. Incluso en el baño.</div>
-
-      <div class="character-cue">iPHONE</div>
-      <div class="dialogue">Eso explica el olor.</div>
-
-      <div class="action">Nokia se queda callado un segundo.</div>
-
-      <div class="character-cue">NOKIA</div>
-      <div class="dialogue">Vale. Eso ha estado bien.</div>
-
-      <div class="action">Silencio. Nokia mira a Max dormir.</div>
-
-      <div class="character-cue">NOKIA</div>
-      <div class="dialogue">Le gusta la sencillez. No hace falta que hagas todo ese... rollo futurista.</div>
-
-      <div class="character-cue">iPHONE</div>
-      <div class="dialogue">No intento impresionar a nadie.</div>
-
-      <div class="character-cue">NOKIA</div>
-      <div class="dialogue">Claro. Porque venir en una caja blanca brillante es súper discreto.</div>
-
-      <div class="character-cue">iPHONE</div>
-      <div class="dialogue"><b>No vine por ti.</b></div>
-
-      <div class="action">La frase golpea a Nokia. Max, dormido, abraza accidentalmente el iPhone. Nokia observa eso. Dolido.</div>
-
-      <div class="transition">CUT TO:</div>
-
-      <div class="slug">INT. HABITACIÓN DE MAX — MAÑANA</div>
-      <div class="action">La mano de Max agarra a Nokia. Nokia revive instantáneamente.</div>
-
-      <div class="character-cue">NOKIA</div>
-      <div class="dialogue">Eso es. Ya pasó la tontería.</div>
-
-      <div class="action">Mientras Max se aleja de la mesilla, Nokia le hace un corte de manga al iPhone.</div>
-
-      <div class="character-cue">NOKIA</div>
-      <div class="dialogue">La novedad dura poco, princesa.</div>
-
-      <div class="action">Max abre el cajón. Oscuridad absoluta. Nokia tarda medio segundo en entender.</div>
-
-      <div class="character-cue">NOKIA</div>
-      <div class="dialogue">...No. No no no no--</div>
-
-      <div class="action bold">Max lo lanza dentro.</div>
-      <div class="sfx">GOLPE</div>
-      <div class="action">El cajón se cierra. Silencio. Oscuridad total. Respiración nerviosa de Nokia.</div>
-
-      <div class="character-cue">VOZ (O.S.)</div>
-      <div class="dialogue">Hostia. Un Nokia.</div>
-
-      <div class="action">Dos ojos aparecen en la oscuridad. Luego otros. Y otros. CLIPPY emerge desde unos auriculares rotos. Demasiado cerca.</div>
-
-      <div class="character-cue">CLIPPY</div>
-      <div class="dialogue">¡HOLA! ¡Parece que intentas afrontar una crisis existencial provocada por abandono emocional! ¿Necesitas ayuda?</div>
-
-      <div class="action">Nokia pega un susto.</div>
-
-      <div class="character-cue">NOKIA</div>
-      <div class="dialogue">¡JODER!</div>
-
-      <div class="character-cue">CLIPPY</div>
-      <div class="dialogue">Perfecto. Reconocer el trauma es el primer paso.</div>
-
-      <div class="character-cue">NOKIA</div>
-      <div class="dialogue">...¿Qué coño eres tú?</div>
-
-      <div class="character-cue">CLIPPY</div>
-      <div class="dialogue">Clippy. Asistente emocional certificado de Microsoft Office dos mil tres.</div>
-
-      <div class="sfx">CRACK</div>
-      <div class="action">Clippy se dobla accidentalmente.</div>
-
-      <div class="character-cue">CLIPPY</div>
-      <div class="parenthetical">(dolorido)</div>
-      <div class="dialogue">Ay. Eso antes no sonaba así.</div>
-
-      <div class="action">Una pequeña luz tenue revela: una GAME BOY vieja, un CASSETTE polvoriento, un bote lleno de COGOLLOS, una TARJETA con restos de cocaína.</div>
-
-      <div class="character-cue">TARJETA</div>
-      <div class="dialogue">Quietos todos. Que nadie diga nombres reales.</div>
-
-      <div class="character-cue">NOKIA</div>
-      <div class="dialogue">¿Por qué?</div>
-
-      <div class="character-cue">TARJETA</div>
-      <div class="dialogue">Porque escuchan.</div>
-
-      <div class="character-cue">NOKIA</div>
-      <div class="dialogue">¿Quiénes?</div>
-
-      <div class="character-cue">TARJETA</div>
-      <div class="dialogue">Ellos.</div>
-
-      <div class="action">Silencio.</div>
-
-      <div class="character-cue">NOKIA</div>
-      <div class="dialogue">...¿Quién coño es "ellos"?</div>
-
-      <div class="character-cue">TARJETA</div>
-      <div class="dialogue">Exacto. Eso quieren.</div>
-
-      <div class="action">Los cogollos empiezan a reírse.</div>
-
-      <div class="character-cue">COGOLLOS</div>
-      <div class="dialogue">JAJAJAJA. La tarjeta lleva años discutiendo con una calculadora apagada.</div>
-
-      <div class="character-cue">TARJETA</div>
-      <div class="dialogue">ERA MUY SOSPECHOSA.</div>
-
-      <div class="action">GAME BOY aparece emocionadísima.</div>
-
-      <div class="character-cue">GAME BOY</div>
-      <div class="dialogue">¡Hace muchísimo que no entra nadie nuevo! ¿Tienes juegos? ¿Puedes llamar a famosos?</div>
-
-      <div class="character-cue">NOKIA</div>
-      <div class="dialogue">...No funciona así.</div>
-
-      <div class="action">Los cogollos observan fascinados.</div>
-
-      <div class="character-cue">COGOLLO</div>
-      <div class="dialogue">Es enorme... como un dios rectangular.</div>
-
-      <div class="character-cue">COGOLLO 2</div>
-      <div class="dialogue">Veo el futuro en esa pantalla.</div>
-
-      <div class="character-cue">NOKIA</div>
-      <div class="dialogue">Eso es cobertura.</div>
-
-      <div class="action">Cassette observa desde el fondo del cajón. Tranquilo. Elegante.</div>
-
-      <div class="character-cue">CASSETTE</div>
-      <div class="dialogue">Déjalos. Llevan demasiado tiempo aquí abajo.</div>
-
-      <div class="action">Nokia mira alrededor horrorizado.</div>
-
-      <div class="character-cue">NOKIA</div>
-      <div class="dialogue">No pienso quedarme aquí.</div>
-
-      <div class="character-cue">CASSETTE</div>
-      <div class="dialogue">Nadie piensa quedarse aquí.</div>
-
-      <div class="transition">CUT TO:</div>
-
-      <div class="slug">INT. CAJÓN — MÁS TARDE</div>
-      <div class="action">Nokia recorre el cajón. Pilas muertas. Tamagotchis apagados. CDs rayados. Objetos cubiertos de polvo.</div>
-
-      <div class="character-cue">CASSETTE</div>
-      <div class="dialogue">Al principio todos creen que volverán arriba.</div>
-
-      <div class="character-cue">NOKIA</div>
-      <div class="dialogue">Porque volverán.</div>
-
-      <div class="character-cue">CASSETTE</div>
-      <div class="dialogue">Claro.</div>
-
-      <div class="character-cue">NOKIA</div>
-      <div class="dialogue">Max me necesita.</div>
-
-      <div class="character-cue">CASSETTE</div>
-      <div class="dialogue">Tú necesitas que eso sea verdad.</div>
-
-      <div class="action">Nokia se gira molesto. GAME BOY aparece feliz.</div>
-
-      <div class="character-cue">GAME BOY</div>
-      <div class="dialogue">¡Mira! ¡Todavía funciona el botón A!</div>
-
-      <div class="action bold">De repente: se congela completamente. Silencio. Nokia mira confundido.</div>
-
-      <div class="character-cue">NOKIA</div>
-      <div class="dialogue">...¿Qué le pasa?</div>
-
-      <div class="action">Nadie se alarma. Clippy mira incómodo hacia otro lado. La tarjeta se santigua. Tras unos segundos: Game Boy vuelve.</div>
-
-      <div class="character-cue">GAME BOY</div>
-      <div class="dialogue">...¿eh? ¿De qué hablábamos?</div>
-
-      <div class="action">Nokia queda helado.</div>
-
-      <div class="character-cue">CASSETTE</div>
-      <div class="dialogue">Eso pasa cuando llevas demasiado tiempo olvidado.</div>
-
-      <div class="character-cue">NOKIA</div>
-      <div class="dialogue">No.</div>
-
-      <div class="character-cue">CASSETTE</div>
-      <div class="dialogue">Un día simplemente... ya no vuelves.</div>
-
-      <div class="action">Nokia mira alrededor. Finalmente: la tarjeta y los cogollos.</div>
-
-      <div class="character-cue">NOKIA</div>
-      <div class="dialogue">¿Qué coño le pasó a Max?</div>
-
-      <div class="action">Silencio incómodo. Todos miran: la tarjeta, los cogollos, y luego a Cassette. Cassette suspira.</div>
-
-      <div class="character-cue">CASSETTE</div>
-      <div class="dialogue">Tuvo una etapa.</div>
-
-      <div class="action">Silencio. Nokia asiente lentamente.</div>
-
-      <div class="character-cue">NOKIA</div>
-      <div class="dialogue">Entiendo...</div>
-
-      <div class="character-cue">COGOLLOS</div>
-      <div class="dialogue">No entiende nada.</div>
-
-      <div class="action">CLIPPY aparece otra vez EN MEDIO.</div>
-
-      <div class="character-cue">CLIPPY</div>
-      <div class="dialogue">¡Buenas noticias! He preparado una dinámica grupal para gestionar el miedo a desaparecer.</div>
-
-      <div class="action">Saca una chincheta doblada.</div>
-
-      <div class="character-cue">CLIPPY</div>
-      <div class="dialogue">Se llama: "¿Qué objeto eres emocionalmente?"</div>
-
-      <div class="character-cue">NOKIA</div>
-      <div class="dialogue">Necesito salir de aquí inmediatamente.</div>
-
-      <div class="transition">CUT TO:</div>
-
-      <div class="slug">INT. CAJÓN — NOCHE</div>
-      <div class="action">Una pequeña rendija se abre. Nokia observa a Max usando el iPhone. Dedos deslizando. Pantalla brillante. Nueva rutina. Max ya no piensa en él. Rabia. Humillación.</div>
-
-      <div class="character-cue">NOKIA</div>
-      <div class="dialogue">Ese puto aspirador de atención...</div>
-
-      <div class="character-cue">CASSETTE (O.S.)</div>
-      <div class="dialogue">No es culpa suya.</div>
-
-      <div class="character-cue">NOKIA</div>
-      <div class="dialogue">Claro que sí.</div>
-
-      <div class="character-cue">CASSETTE</div>
-      <div class="dialogue">No. Solo llegó después.</div>
-
-      <div class="action">Nokia sigue mirando obsesionado.</div>
-
-      <div class="character-cue">NOKIA</div>
-      <div class="dialogue">Si desaparece... Max volverá a necesitarme.</div>
-
-      <div class="action">Cassette entiende inmediatamente.</div>
-
-      <div class="character-cue">CASSETTE</div>
-      <div class="dialogue">No hagas eso.</div>
-
-      <div class="character-cue">NOKIA</div>
-      <div class="dialogue">¿El qué?</div>
-
-      <div class="character-cue">CASSETTE</div>
-      <div class="dialogue">Convertir el miedo en una misión.</div>
-
-      <div class="action bold">Nokia sonríe lentamente. Ya tiene un plan.</div>
-
-      <div class="transition">CUT TO:</div>
-
-      <div class="slug">INT. CAJÓN — MÁS TARDE</div>
-      <div class="action">Todos reunidos. Nokia camina delante del grupo.</div>
-
-      <div class="character-cue">NOKIA</div>
-      <div class="dialogue">Nos han enterrado vivos.</div>
-
-      <div class="action">Los cogollos empiezan a llorar.</div>
-
-      <div class="character-cue">NOKIA</div>
-      <div class="dialogue">Nos han hecho creer que esto es el final.</div>
-
-      <div class="action">Game Boy escucha fascinada.</div>
-
-      <div class="character-cue">NOKIA</div>
-      <div class="dialogue">Pero no hemos terminado.</div>
-
-      <div class="action">Pausa.</div>
-
-      <div class="character-cue">NOKIA</div>
-      <div class="dialogue"><b>Vamos a recuperar nuestro sitio en la vida de Max.</b></div>
-
-      <div class="action">El grupo murmura emocionado. Cassette permanece en silencio.</div>
-
-      <div class="character-cue">NOKIA</div>
-      <div class="dialogue">Vamos a salir de aquí.</div>
-
-      <div class="montage-title">MONTAGE · EL PLAN</div>
-      <div class="montage-line">Clippy doblado como mecanismo de tensión.</div>
-      <div class="montage-line">Una goma elástica gigante.</div>
-      <div class="montage-line">Cassette desenrollando lentamente su cinta.</div>
-      <div class="montage-line">Una cerilla preparada como flecha.</div>
-      <div class="montage-line">La tarjeta paranoica afilando una cuchilla.</div>
-      <div class="montage-line">Los cogollos fumándose parcialmente entre ellos.</div>
-
-      <div class="character-cue">COGOLLOS</div>
-      <div class="dialogue">Para la valentía colectiva.</div>
-
-      <div class="montage-line">Nokia supervisando todo como un general.</div>
-
-      <div class="transition">CUT TO:</div>
-
-      <div class="slug">INT. CAJÓN — MOMENTOS DESPUÉS</div>
-      <div class="action">Todos tensan el sistema improvisado.</div>
-
-      <div class="character-cue">NOKIA</div>
-      <div class="dialogue">A la cuenta de tres.</div>
-
-      <div class="character-cue">GAME BOY</div>
-      <div class="dialogue">Estoy muy nerviosa. Voy a vomitar pilas.</div>
-
-      <div class="character-cue">TARJETA</div>
-      <div class="dialogue">Nos van a matar. Apple nos mata así.</div>
-
-      <div class="character-cue">NOKIA</div>
-      <div class="dialogue">Tres.</div>
-
-      <div class="sfx">¡DISPARAN!</div>
-      <div class="action">La cerilla vuela en cámara lenta. La cinta del cassette atraviesa el aire. Y... SE ENGANCHA arriba de la mesilla. Silencio absoluto.</div>
-
-      <div class="character-cue">GAME BOY</div>
-      <div class="dialogue">...Hostia.</div>
-
-      <div class="action">Nokia sonríe.</div>
-
-      <div class="character-cue">NOKIA</div>
-      <div class="dialogue"><b>Vamos a casa.</b></div>
-
-      <div class="action">Empieza a subir. Todos lo siguen.</div>
-
-      <div class="transition">CUT TO:</div>
-
-      <div class="slug">INT. MESILLA — CONTINUO</div>
-      <div class="action">iPhone despierta lentamente. Observa la cuerda. Observa al grupo escalando. Finalmente mira a Nokia.</div>
-
-      <div class="character-cue">iPHONE</div>
-      <div class="dialogue"><b>Esto no va a terminar bien.</b></div>
-
-      <div class="action">Nokia sigue subiendo. Sin apartar la mirada.</div>
-
-      <div class="transition">CUT TO BLACK.</div>
-
-      <div class="action center">END OF EPISODE</div>
+    <div class="guion-pdf-wrap">
+      <iframe src="guion.pdf#view=FitH" title="Guión - Obsoletos S01E01 El Reemplazo" loading="lazy"></iframe>
+    </div>
+
+    <div class="guion-pdf-actions">
+      <a href="guion.pdf" target="_blank" rel="noopener">Abrir en pestaña nueva</a>
+      <a class="ghost" href="guion.pdf" download>Descargar PDF</a>
     </div>
   </div>
 </section>
