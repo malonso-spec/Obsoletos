@@ -565,6 +565,58 @@
   .episodio-card.is-coming .episodio-name,
   .episodio-card.is-coming .episodio-tag { color: var(--ink-faint); }
 
+  /* selector de episodios */
+  .episodio-tabs {
+    display: flex; flex-wrap: wrap; gap: 12px;
+    margin-bottom: 40px;
+  }
+  .episodio-tab {
+    display: flex; flex-direction: column; gap: 4px; text-align: left;
+    background: var(--paper); border: 1px solid var(--rule);
+    border-radius: 16px; padding: 16px 22px; cursor: pointer;
+    font-family: inherit; color: var(--ink);
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s, background 0.2s;
+  }
+  .episodio-tab .tab-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--amber-deep);
+  }
+  .episodio-tab .tab-name {
+    font-family: 'Fraunces', serif; font-weight: 700;
+    font-size: 1.1rem; line-height: 1.1; letter-spacing: -0.01em;
+  }
+  .episodio-tab:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+  .episodio-tab.is-active {
+    background: var(--night); border-color: var(--night); color: var(--paper);
+    box-shadow: var(--shadow-lift);
+  }
+  .episodio-tab.is-active .tab-num,
+  .episodio-tab.is-active .tab-name { color: var(--paper); }
+  .episodio-tab.is-active .tab-num { color: var(--amber-light); }
+  .episodio-tab.is-coming { opacity: 0.6; border-style: dashed; }
+  .episodio-tab.is-coming.is-active { opacity: 1; }
+
+  /* paneles conmutables */
+  .episodio-panel { display: none; }
+  .episodio-panel.is-active { display: block; }
+  .episodio-soon {
+    text-align: center; padding: 80px 32px;
+    border: 1px dashed var(--rule); border-radius: 24px;
+    background: rgba(42,24,16,0.02);
+  }
+  .episodio-soon .soon-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--amber-deep);
+  }
+  .episodio-soon h3 {
+    font-family: 'Fraunces', serif; font-weight: 800;
+    font-size: clamp(1.8rem, 3vw, 2.4rem); color: var(--ink);
+    margin: 10px 0 8px; letter-spacing: -0.02em;
+  }
+  .episodio-soon p { color: var(--ink-soft); }
+
   /* episodio (bloque autocontenido) */
   .episodio { margin-bottom: 48px; }
   .episodio:last-child { margin-bottom: 0; }
@@ -1140,7 +1192,20 @@
       <p class="section-lead">La serie, capítulo a capítulo. Cada episodio reúne su sinopsis, su guión completo y sus enlaces de interés.</p>
     </div>
 
+    <!-- Selector de episodios -->
+    <div class="episodio-tabs" role="tablist" aria-label="Selecciona un episodio">
+      <button type="button" class="episodio-tab is-active" role="tab" aria-selected="true" aria-controls="panel-piloto" data-ep="piloto">
+        <span class="tab-num">Episodio 01</span>
+        <span class="tab-name">El Reemplazo</span>
+      </button>
+      <button type="button" class="episodio-tab is-coming" role="tab" aria-selected="false" aria-controls="panel-ep02" data-ep="ep02">
+        <span class="tab-num">Episodio 02</span>
+        <span class="tab-name">Próximamente</span>
+      </button>
+    </div>
+
     <!-- Episodio 01 · Piloto -->
+    <div class="episodio-panel is-active" id="panel-piloto" role="tabpanel">
     <article class="episodio" id="ep-piloto">
       <div class="episodio-head">
         <div class="ep-eyebrow">Episodio 01 · Piloto</div>
@@ -1632,16 +1697,38 @@
         </div>
       </div>
     </article>
+    </div><!-- /panel-piloto -->
 
-    <div class="episodios-list">
-      <div class="episodio-card is-coming">
-        <span class="episodio-tag">Episodio 02</span>
-        <span class="episodio-name">Próximamente</span>
-        <span class="episodio-sub">En desarrollo</span>
+    <!-- Episodio 02 · Próximamente -->
+    <div class="episodio-panel" id="panel-ep02" role="tabpanel">
+      <div class="episodio-soon">
+        <div class="soon-tag">Episodio 02</div>
+        <h3>Próximamente</h3>
+        <p>En desarrollo. Pronto habrá sinopsis, guión y enlaces de interés.</p>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  (function () {
+    var tabs = document.querySelectorAll('.episodio-tab');
+    var panels = document.querySelectorAll('.episodio-panel');
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        var target = tab.getAttribute('data-ep');
+        tabs.forEach(function (t) {
+          var on = t === tab;
+          t.classList.toggle('is-active', on);
+          t.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        panels.forEach(function (p) {
+          p.classList.toggle('is-active', p.id === 'panel-' + target);
+        });
+      });
+    });
+  })();
+</script>
 
 <!-- ============ FOOTER ============ -->
 <footer>
