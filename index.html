@@ -674,14 +674,20 @@
   .guion-details[open] > summary { margin-bottom: 28px; }
 
   .ep-resources { display: flex; flex-wrap: wrap; gap: 14px; }
-  .ep-resources a {
+  .ep-resources a,
+  .ep-resources button {
     display: inline-flex; align-items: center; gap: 8px;
     padding: 12px 22px; border-radius: 100px;
     text-decoration: none; font-weight: 600; font-size: 0.9rem;
+    font-family: inherit; cursor: pointer; border: 0;
     background: var(--amber); color: var(--night);
     transition: background 0.2s, transform 0.2s;
   }
-  .ep-resources a:hover { background: var(--amber-light); transform: translateY(-2px); }
+  .ep-resources a:hover,
+  .ep-resources button:hover { background: var(--amber-light); transform: translateY(-2px); }
+  .ep-resources .guion-trigger { background: var(--paper); color: var(--night); }
+  .ep-resources .guion-trigger:hover { background: #fff; }
+  .ep-resources .guion-trigger::before { content: "▤"; font-size: 0.9rem; }
   .ep-resources a.ghost {
     background: transparent; color: var(--paper);
     border: 1px solid rgba(253, 246, 227, 0.3);
@@ -1207,29 +1213,10 @@
     <!-- Episodio 01 · Piloto -->
     <div class="episodio-panel is-active" id="panel-piloto" role="tabpanel">
     <article class="episodio" id="ep-piloto">
-      <div class="episodio-head">
-        <div class="ep-eyebrow">Episodio 01 · Piloto</div>
-        <h3>El Reemplazo</h3>
-        <div class="ep-quote">"No vine por ti."</div>
-        <div class="episodio-meta">
-          <span>Temporada <b>01</b></span>
-          <span>Duración <b>~10 min</b></span>
-          <span>Ubicación <b>Hab. 2008</b></span>
-          <span>Personajes <b>ROCK-E + 6</b></span>
-          <span>Música <b>Blink-182</b></span>
-        </div>
-        <div class="ep-resources">
-          <a href="https://docs.google.com/spreadsheets/d/1TsJM4RJY7h0yrfJb7bFZZGpyPG6iPYQ3zALqPDPVzsc/edit?gid=441420325#gid=441420325" target="_blank" rel="noopener">Guión técnico</a>
-          <a href="https://www.notion.so/freepikcompany/Ep-Piloto-OBSOLETOS-Producci-n-con-IA-35d188786916818ebb76e29419d8bc71" target="_blank" rel="noopener">CMS de producción</a>
-          <a href="https://www.magnific.com/app/spaces/a1c2ffb8-17f2-491b-8e3e-8167a41230b4?page=9051945c-2ff8-4938-8d8f-090282d25ab8&log-in=google" target="_blank" rel="noopener">Workspace · Magnific</a>
-          <a class="ghost" href="Guion_V4.pdf" download>Descargar guión (PDF)</a>
-        </div>
-      </div>
-
-      <div class="episodio-body">
-        <div class="episodio-block">
-          <div class="episodio-label">Sinopsis</div>
-          <div class="piloto-content">
+      <!-- Sinopsis primero -->
+      <div class="episodio-block episodio-sinopsis">
+        <div class="episodio-label">Sinopsis</div>
+        <div class="piloto-content">
         <p><span class="drop">R</span>OCK-E vive la mejor etapa de su vida como móvil favorito de Max, un adolescente en 2008. Conoce todos sus secretos: mensajes nocturnos, canciones piratas, fotos borrosas, llamadas incómodas, primeros amores. ROCK-E se siente <em>indispensable</em>.</p>
 
         <p class="dim">Pero todo cambia cuando la madre de Max llega a casa con un regalo inesperado: un SAMMY.</p>
@@ -1254,13 +1241,32 @@
           Sobre la mesilla, SAMMY observa la cuerda colgando. Ve a ROCK-E subiendo junto al grupo. No parece asustada. Solo los observa con calma. Y dice: <b>"Esto no va a terminar bien."</b>
         </div>
           </div>
-        </div>
+      </div>
 
-        <div class="episodio-block">
-          <div class="episodio-label">Guión completo</div>
-          <details class="guion-details">
-            <summary>Leer el guión escena por escena</summary>
-            <div class="guion-paper">
+      <!-- Cabecera -->
+      <div class="episodio-head">
+        <div class="ep-eyebrow">Episodio 01 · Piloto</div>
+        <h3>El Reemplazo</h3>
+        <div class="ep-quote">"No vine por ti."</div>
+        <div class="episodio-meta">
+          <span>Temporada <b>01</b></span>
+          <span>Duración <b>~10 min</b></span>
+          <span>Ubicación <b>Hab. 2008</b></span>
+          <span>Personajes <b>ROCK-E + 6</b></span>
+          <span>Música <b>Blink-182</b></span>
+        </div>
+        <div class="ep-resources">
+          <button type="button" class="guion-trigger" data-target="guion-piloto">Guión literario</button>
+          <a href="https://docs.google.com/spreadsheets/d/1TsJM4RJY7h0yrfJb7bFZZGpyPG6iPYQ3zALqPDPVzsc/edit?gid=441420325#gid=441420325" target="_blank" rel="noopener">Guión técnico</a>
+          <a href="https://www.notion.so/freepikcompany/Ep-Piloto-OBSOLETOS-Producci-n-con-IA-35d188786916818ebb76e29419d8bc71" target="_blank" rel="noopener">CMS de producción</a>
+          <a href="https://www.magnific.com/app/spaces/a1c2ffb8-17f2-491b-8e3e-8167a41230b4?page=9051945c-2ff8-4938-8d8f-090282d25ab8&log-in=google" target="_blank" rel="noopener">Workspace · Magnific</a>
+          <a class="ghost" href="Guion_V4.pdf" download>Descargar guión (PDF)</a>
+        </div>
+      </div>
+
+      <details class="guion-details" id="guion-piloto">
+        <summary>Leer el guión escena por escena</summary>
+        <div class="guion-paper">
       <div class="action center bold">OBSOLETOS — Episodio piloto</div>
 
       <div class="transition">FADE IN:</div>
@@ -1692,10 +1698,8 @@
       <div class="transition">CUT TO BLACK.</div>
 
       <div class="action center">END OF EPISODE.</div>
-            </div>
-          </details>
         </div>
-      </div>
+      </details>
     </article>
     </div><!-- /panel-piloto -->
 
@@ -1725,6 +1729,15 @@
         panels.forEach(function (p) {
           p.classList.toggle('is-active', p.id === 'panel-' + target);
         });
+      });
+    });
+
+    document.querySelectorAll('.guion-trigger').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var det = document.getElementById(btn.getAttribute('data-target'));
+        if (!det) return;
+        det.open = true;
+        det.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });
   })();
