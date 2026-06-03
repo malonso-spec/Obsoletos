@@ -654,24 +654,21 @@
     border-bottom: 1px solid var(--rule);
   }
 
-  /* guión plegable */
-  .guion-details { border: 0; }
-  .guion-details > summary {
-    list-style: none; cursor: pointer;
-    display: inline-flex; align-items: center; gap: 10px;
-    padding: 14px 26px; border-radius: 100px;
-    background: var(--night); color: var(--paper);
+  /* guión literario (conmutable desde la cabecera) */
+  .guion-block { display: none; margin-top: 40px; }
+  .guion-block.is-open { display: block; }
+  .guion-download {
+    margin-top: 28px; display: flex; justify-content: center;
+  }
+  .guion-download a {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 26px; border-radius: 100px; text-decoration: none;
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
-    font-weight: 600; transition: background 0.2s, transform 0.2s;
+    font-weight: 600; background: var(--night); color: var(--paper);
+    transition: background 0.2s, transform 0.2s;
   }
-  .guion-details > summary::-webkit-details-marker { display: none; }
-  .guion-details > summary::after {
-    content: "▾"; font-size: 0.9rem; transition: transform 0.2s;
-  }
-  .guion-details[open] > summary::after { transform: rotate(180deg); }
-  .guion-details > summary:hover { background: #000; transform: translateY(-1px); }
-  .guion-details[open] > summary { margin-bottom: 28px; }
+  .guion-download a:hover { background: #000; transform: translateY(-1px); }
 
   .ep-resources { display: flex; flex-wrap: wrap; gap: 14px; }
   .ep-resources a,
@@ -687,6 +684,7 @@
   .ep-resources button:hover { background: var(--amber-light); transform: translateY(-2px); }
   .ep-resources .guion-trigger { background: var(--paper); color: var(--night); }
   .ep-resources .guion-trigger:hover { background: #fff; }
+  .ep-resources .guion-trigger.is-active { background: var(--amber); }
   .ep-resources .guion-trigger::before { content: "▤"; font-size: 0.9rem; }
   .ep-resources a.ghost {
     background: transparent; color: var(--paper);
@@ -1260,12 +1258,10 @@
           <a href="https://docs.google.com/spreadsheets/d/1TsJM4RJY7h0yrfJb7bFZZGpyPG6iPYQ3zALqPDPVzsc/edit?gid=441420325#gid=441420325" target="_blank" rel="noopener">Guión técnico</a>
           <a href="https://www.notion.so/freepikcompany/Ep-Piloto-OBSOLETOS-Producci-n-con-IA-35d188786916818ebb76e29419d8bc71" target="_blank" rel="noopener">CMS de producción</a>
           <a href="https://www.magnific.com/app/spaces/a1c2ffb8-17f2-491b-8e3e-8167a41230b4?page=9051945c-2ff8-4938-8d8f-090282d25ab8&log-in=google" target="_blank" rel="noopener">Workspace · Magnific</a>
-          <a class="ghost" href="Guion_V4.pdf" download>Descargar guión (PDF)</a>
         </div>
       </div>
 
-      <details class="guion-details" id="guion-piloto">
-        <summary>Leer el guión escena por escena</summary>
+      <div class="guion-block" id="guion-piloto">
         <div class="guion-paper">
       <div class="action center bold">OBSOLETOS — Episodio piloto</div>
 
@@ -1699,7 +1695,10 @@
 
       <div class="action center">END OF EPISODE.</div>
         </div>
-      </details>
+        <div class="guion-download">
+          <a href="Guion_V4.pdf" download>Descargar guión (PDF)</a>
+        </div>
+      </div>
     </article>
     </div><!-- /panel-piloto -->
 
@@ -1734,10 +1733,13 @@
 
     document.querySelectorAll('.guion-trigger').forEach(function (btn) {
       btn.addEventListener('click', function () {
-        var det = document.getElementById(btn.getAttribute('data-target'));
-        if (!det) return;
-        det.open = true;
-        det.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        var block = document.getElementById(btn.getAttribute('data-target'));
+        if (!block) return;
+        var opening = !block.classList.contains('is-open');
+        block.classList.toggle('is-open', opening);
+        btn.classList.toggle('is-active', opening);
+        btn.setAttribute('aria-expanded', opening ? 'true' : 'false');
+        if (opening) block.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });
   })();
