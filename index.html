@@ -565,16 +565,62 @@
   .episodio-card.is-coming .episodio-name,
   .episodio-card.is-coming .episodio-tag { color: var(--ink-faint); }
 
-  .ep-piloto-panel {
+  /* episodio (bloque autocontenido) */
+  .episodio { margin-bottom: 48px; }
+  .episodio:last-child { margin-bottom: 0; }
+  .episodio-head {
     background: var(--night); color: var(--paper);
-    border-radius: 24px; padding: 40px 44px;
+    border-radius: 24px; padding: 44px 48px;
   }
-  .ep-piloto-panel .ep-eyebrow { color: var(--amber-light); }
-  .ep-piloto-panel h3 {
-    font-family: 'Fraunces', serif; font-weight: 700;
-    font-size: 1.5rem; color: var(--paper); margin-bottom: 8px;
+  .episodio-head .ep-eyebrow { color: var(--amber-light); margin-bottom: 14px; }
+  .episodio-head h3 {
+    font-family: 'Fraunces', serif; font-weight: 800;
+    font-size: clamp(2.2rem, 4vw, 3.2rem); line-height: 1;
+    letter-spacing: -0.02em; color: var(--paper); margin-bottom: 12px;
   }
-  .ep-piloto-panel p { color: rgba(253, 246, 227, 0.7); font-size: 0.95rem; margin-bottom: 24px; max-width: 640px; }
+  .episodio-head .ep-quote {
+    font-family: 'Fraunces', serif; font-style: italic;
+    font-size: 1.15rem; color: var(--amber-light); margin-bottom: 28px;
+  }
+  .episodio-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; }
+  .episodio-meta span {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 8px 14px; border-radius: 100px;
+    background: rgba(253, 246, 227, 0.07);
+    border: 1px solid rgba(253, 246, 227, 0.16);
+    color: rgba(253, 246, 227, 0.7);
+  }
+  .episodio-meta span b { color: var(--amber-light); font-weight: 600; }
+
+  .episodio-block { margin-top: 40px; }
+  .episodio-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--amber-deep); font-weight: 600;
+    margin-bottom: 22px; padding-bottom: 14px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  /* guión plegable */
+  .guion-details { border: 0; }
+  .guion-details > summary {
+    list-style: none; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 26px; border-radius: 100px;
+    background: var(--night); color: var(--paper);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
+    font-weight: 600; transition: background 0.2s, transform 0.2s;
+  }
+  .guion-details > summary::-webkit-details-marker { display: none; }
+  .guion-details > summary::after {
+    content: "▾"; font-size: 0.9rem; transition: transform 0.2s;
+  }
+  .guion-details[open] > summary::after { transform: rotate(180deg); }
+  .guion-details > summary:hover { background: #000; transform: translateY(-1px); }
+  .guion-details[open] > summary { margin-bottom: 28px; }
+
   .ep-resources { display: flex; flex-wrap: wrap; gap: 14px; }
   .ep-resources a {
     display: inline-flex; align-items: center; gap: 8px;
@@ -599,7 +645,7 @@
 
   @media (max-width: 760px) {
     .episodios-list { grid-template-columns: 1fr; }
-    .ep-piloto-panel { padding: 32px 28px; }
+    .episodio-head { padding: 32px 28px; }
   }
 
   /* ---------- GUIÓN ---------- */
@@ -831,16 +877,6 @@
         <a class="index-item" href="#episodios">
           <span class="index-num">05</span>
           <span class="index-title">Los episodios</span>
-          <span class="index-arrow">→</span>
-        </a>
-        <a class="index-item" href="#piloto">
-          <span class="index-num">06</span>
-          <span class="index-title">Piloto · sinopsis</span>
-          <span class="index-arrow">→</span>
-        </a>
-        <a class="index-item" href="#guion">
-          <span class="index-num">07</span>
-          <span class="index-title">Piloto · guión</span>
           <span class="index-arrow">→</span>
         </a>
       </div>
@@ -1095,69 +1131,40 @@
   </div>
 </section>
 
-<!-- ============ PILOTO ============ -->
+<!-- ============ EPISODIOS ============ -->
 <section id="episodios">
   <div class="wrap">
     <div class="section-head">
       <div class="section-num">05</div>
       <h2 class="section-title">Los <em>episodios</em></h2>
-      <p class="section-lead">La serie, capítulo a capítulo. Cada episodio reúne su sinopsis, su guión completo y los enlaces de producción.</p>
+      <p class="section-lead">La serie, capítulo a capítulo. Cada episodio reúne su sinopsis, su guión completo y sus enlaces de interés.</p>
     </div>
 
-    <div class="episodios-list">
-      <a class="episodio-card is-active" href="#piloto">
-        <span class="episodio-tag">Episodio 01</span>
-        <span class="episodio-name">El Reemplazo</span>
-        <span class="episodio-sub">Piloto · ~10 min</span>
-        <span class="episodio-status">Ver episodio →</span>
-      </a>
-      <div class="episodio-card is-coming">
-        <span class="episodio-tag">Episodio 02</span>
-        <span class="episodio-name">Próximamente</span>
-        <span class="episodio-sub">En desarrollo</span>
-      </div>
-    </div>
-
-    <div class="ep-piloto-panel">
-      <div class="ep-eyebrow">Episodio piloto · Producción</div>
-      <h3>Recursos del piloto</h3>
-      <p>Sinopsis y guión completo disponibles más abajo. Enlaces de trabajo de la producción del episodio piloto:</p>
-      <div class="ep-resources">
-        <a href="https://docs.google.com/spreadsheets/d/1TsJM4RJY7h0yrfJb7bFZZGpyPG6iPYQ3zALqPDPVzsc/edit?gid=441420325#gid=441420325" target="_blank" rel="noopener">Guión técnico</a>
-        <a href="https://www.notion.so/freepikcompany/Ep-Piloto-OBSOLETOS-Producci-n-con-IA-35d188786916818ebb76e29419d8bc71" target="_blank" rel="noopener">CMS de producción</a>
-        <a href="https://www.magnific.com/app/spaces/a1c2ffb8-17f2-491b-8e3e-8167a41230b4?page=9051945c-2ff8-4938-8d8f-090282d25ab8&log-in=google" target="_blank" rel="noopener">Workspace · Magnific</a>
-        <a class="ghost" href="#piloto">Ir a la sinopsis</a>
-        <a class="ghost" href="#guion">Ir al guión</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ EPISODIO PILOTO · SINOPSIS ============ -->
-<section id="piloto">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="section-num">06</div>
-      <div class="ep-eyebrow">Episodio 01 · Piloto</div>
-      <h2 class="section-title">Sinopsis del <em>piloto</em></h2>
-      <p class="section-lead">Estructura narrativa del primer episodio, acto por acto.</p>
-    </div>
-
-    <div class="piloto-grid">
-      <aside class="piloto-aside">
-        <div class="ep">Episodio 01 · Piloto</div>
+    <!-- Episodio 01 · Piloto -->
+    <article class="episodio" id="ep-piloto">
+      <div class="episodio-head">
+        <div class="ep-eyebrow">Episodio 01 · Piloto</div>
         <h3>El Reemplazo</h3>
-        <div class="sub">"No vine por ti."</div>
-        <div class="meta">
-          <div class="meta-row"><span>Temporada</span><span>01</span></div>
-          <div class="meta-row"><span>Duración</span><span>~10 min</span></div>
-          <div class="meta-row"><span>Ubicación</span><span>Hab. 2008</span></div>
-          <div class="meta-row"><span>Personajes</span><span>ROCK-E + 6</span></div>
-          <div class="meta-row"><span>Música</span><span>Blink-182</span></div>
+        <div class="ep-quote">"No vine por ti."</div>
+        <div class="episodio-meta">
+          <span>Temporada <b>01</b></span>
+          <span>Duración <b>~10 min</b></span>
+          <span>Ubicación <b>Hab. 2008</b></span>
+          <span>Personajes <b>ROCK-E + 6</b></span>
+          <span>Música <b>Blink-182</b></span>
         </div>
-      </aside>
+        <div class="ep-resources">
+          <a href="https://docs.google.com/spreadsheets/d/1TsJM4RJY7h0yrfJb7bFZZGpyPG6iPYQ3zALqPDPVzsc/edit?gid=441420325#gid=441420325" target="_blank" rel="noopener">Guión técnico</a>
+          <a href="https://www.notion.so/freepikcompany/Ep-Piloto-OBSOLETOS-Producci-n-con-IA-35d188786916818ebb76e29419d8bc71" target="_blank" rel="noopener">CMS de producción</a>
+          <a href="https://www.magnific.com/app/spaces/a1c2ffb8-17f2-491b-8e3e-8167a41230b4?page=9051945c-2ff8-4938-8d8f-090282d25ab8&log-in=google" target="_blank" rel="noopener">Workspace · Magnific</a>
+          <a class="ghost" href="Guion_V4.pdf" download>Descargar guión (PDF)</a>
+        </div>
+      </div>
 
-      <div class="piloto-content">
+      <div class="episodio-body">
+        <div class="episodio-block">
+          <div class="episodio-label">Sinopsis</div>
+          <div class="piloto-content">
         <p><span class="drop">R</span>OCK-E vive la mejor etapa de su vida como móvil favorito de Max, un adolescente en 2008. Conoce todos sus secretos: mensajes nocturnos, canciones piratas, fotos borrosas, llamadas incómodas, primeros amores. ROCK-E se siente <em>indispensable</em>.</p>
 
         <p class="dim">Pero todo cambia cuando la madre de Max llega a casa con un regalo inesperado: un SAMMY.</p>
@@ -1181,24 +1188,14 @@
         <div class="pill-quote">
           Sobre la mesilla, SAMMY observa la cuerda colgando. Ve a ROCK-E subiendo junto al grupo. No parece asustada. Solo los observa con calma. Y dice: <b>"Esto no va a terminar bien."</b>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+          </div>
+        </div>
 
-<!-- ============ GUIÓN ============ -->
-<section id="guion" class="dark-bg">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="section-num">07</div>
-      <div class="ep-eyebrow">Episodio 01 · Piloto</div>
-      <h2 class="section-title">El <em>guión</em></h2>
-      <p class="section-lead">Episodio 01 — "El Reemplazo". Guión completo del piloto, escena por escena.</p>
-    </div>
-
-
-
-    <div class="guion-paper">
+        <div class="episodio-block">
+          <div class="episodio-label">Guión completo</div>
+          <details class="guion-details">
+            <summary>Leer el guión escena por escena</summary>
+            <div class="guion-paper">
       <div class="action center bold">OBSOLETOS — Episodio piloto</div>
 
       <div class="transition">FADE IN:</div>
@@ -1630,10 +1627,18 @@
       <div class="transition">CUT TO BLACK.</div>
 
       <div class="action center">END OF EPISODE.</div>
-    </div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </article>
 
-    <div class="guion-pdf-actions">
-      <a class="ghost" href="Guion_V4.pdf" download>Descargar PDF</a>
+    <div class="episodios-list">
+      <div class="episodio-card is-coming">
+        <span class="episodio-tag">Episodio 02</span>
+        <span class="episodio-name">Próximamente</span>
+        <span class="episodio-sub">En desarrollo</span>
+      </div>
     </div>
   </div>
 </section>
